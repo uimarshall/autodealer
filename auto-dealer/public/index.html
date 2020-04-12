@@ -15,29 +15,134 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!--Font Awesome-->
+    <script src="https://use.fontawesome.com/f09ac01b76.js"></script>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
+    <title>Car Spree</title>
+</head>
+
+<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener("load", () =>
+            document.querySelector(".preloader").classList.add("hidePreloader")
+        );
+        // Adding country cars
+        window.addEventListener("load", () => {
+            const naijaCar = $("#nigeria");
+            const americanCar = $("#america");
+            if (naijaCar) {
+                naijaCar.append("nigerian");
+            }
+            if (americanCar) {
+                americanCar.append("america");
+            } else {
+                return null;
+            }
+        });
+        // Create Cars
+        const createCars = (() => {
+            // car data
+            const cars = [];
+            class Car {
+                constructor(
+                    make,
+                    country,
+                    img,
+                    special,
+                    model,
+                    price,
+                    type,
+                    gas,
+                    trans
+                ) {
+                    this.make = make;
+                    this.country = country;
+                    this.img = img;
+                    this.special = special;
+                    this.model = model;
+                    this.price = price;
+                    this.type = type;
+                    this.gas = gas;
+                    this.trans = trans;
+                }
+            }
+            // Function to create a car instance
+            function makeCar(
+                make,
+                country,
+                img = "images/car-default.jpg",
+                special = true,
+                model = "new model",
+                price = 15000,
+                type = "bentley",
+                gas = 60,
+                trans = "automatic"
+            ) {
+                const car = new Car(
+                    make,
+                    country,
+                    img,
+                    special,
+                    model,
+                    price,
+                    type,
+                    gas,
+                    trans
+                );
+                cars.push(car);
+            }
+            // produce cars
+            function produceCars() {
+                makeCar("murano", "american", "images/car-ferari.jpg", true);
+                makeCar("ferari", "american", "images/ferari-car.jpg", true);
+                makeCar("bmw", "american", "images/bmw-car.jpg", true);
+                makeCar("sportcar", "american", "images/sports-car.jpg", true);
+                makeCar("ford", "american", "images/ford-car.jpg", true);
+                makeCar("luxury", "american", "images/luxury.jpg", true);
+                makeCar("mercedes", "german");
+                makeCar("audi", "japanese", "images/car-4.jpg", true);
+            }
+            produceCars();
+            // console.log(cars);
+            // special cars
+            const specialCars = cars.filter(car => car.special === true);
+            // console.log(specialCars);
+            return {
+                cars,
+                specialCars
+            };
+        })();
+        const displaySpecialCars = (createCars => {
+            const specialCars = createCars.specialCars;
+            // Loading content to html document
+            const info = document.querySelector(".featured-info");
+            // document loaded event
+            document.addEventListener("DOMContentLoaded", () => {
+                info.innerHTML = "";
+                let data = "";
+                specialCars.forEach(item => {
+                    data += `<div className="featured-item my-3 d-flex flex-wrap p-2 align-items-baseline text-capitalize">
+				<span className="featured-icon mr-2" data-img="${item.img}">
+					<i className="fa fa-car"></i>
+				</span>
+				<h5 className="font-weight-bold mx-1" id="carMaker">
+					${item.make}
+				</h5>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+				<h5 className="mx-1">${item.model}</h5>
+			</div>`;
+                });
+                info.innerHTML = data;
+            });
+        })(createCars);
+    </script>
   </body>
 </html>
