@@ -3,7 +3,7 @@
 This is a project for building an application for online sales of all varieties of cars.
 
 > ​
-> ![screenshot](./images/autodealer.png)
+> ![screenshot](./autodealer.png)
 > ​
 
 # Quick start
