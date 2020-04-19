@@ -56,6 +56,7 @@ npm start
 - Github: [@uimarshall](https://github.com/uimarshall)
 - Twitter: [@uimarshall](https://twitter.com/uimarshall)
 - Linkedin: [uimarshall](https://www.linkedin.com/in/marshall-akpan-19745526/)
+- Email: [uimarshall](uimarshall@gmail.com)
 
 ​
 
