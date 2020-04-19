@@ -1,13 +1,15 @@
 # autodealer
+
 This is a project for building an application for online sales of all varieties of cars.
 
 > ​
-> ![screenshot](./images/autodealer.png)
+> ![screenshot](../../images/autodealer.png)
 > ​
 
 # Quick start
 
 ## clone repository
+
 git clone https://github.com/uimarshall/autodealer.git
 
 ##change directory
@@ -15,9 +17,11 @@ git clone https://github.com/uimarshall/autodealer.git
 cd autodealer/auto-dealer
 
 ## Install dependencies for server
+
 npm install
 
 ## Run the React app
+
 npm start
 
 ## Server runs on http://localhost:3000
@@ -60,7 +64,6 @@ npm start
 
 ​
 
-
 ## �� Contributing
 
 ​
@@ -88,6 +91,3 @@ Give a ⭐️ if you like this project!
 
 ​
 This project is [MIT](lic.url) licensed.
-
-
-
