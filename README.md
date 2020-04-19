@@ -36,7 +36,7 @@ npm start
 ## Live Demo
 
 ​
-[Live Demo Link](https://rawcdn.githack.com/uimarshall/apple-webpage-clone/bea229a450ab905b5447a26a714a9bf91948663c/index.html)
+[Live Demo Link](https://cocky-ride-482d06.netlify.app/)
 ​
 ​
 
